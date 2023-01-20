@@ -1,0 +1,61 @@
+Building blocks.
+1. Docker Engine
+    Docker Engine is the underlying technology that runs the Docker containers. 
+    It is a lightweight runtime that handles the low-level details of container creation, networking, storage, and other operations. It is responsible for creating and managing the lifecycle of containers, and it communicates with the Docker daemon through a REST API.
+
+2. Docker Tools & CLI
+    Docker is a platform for developing, shipping, and running applications in containers. The Docker tools and CLI (command-line interface) are used to create and manage these containers. The main tools and CLI commands include:
+    docker: the main command used to interact with the Docker daemon, including starting and stopping containers, managing images,  and more.
+    docker-compose: a tool for defining and running multi-container applications. It allows you to define your application's    services, networks, and volumes in a single docker-compose.yml file.
+    docker-machine: a tool for creating and managing virtual machines that host Docker engines. It can be used to create a cluster of   Docker engines, for example, to run a swarm of containers.
+    docker-swarm: a native clustering solution for Docker. It allows you to create and manage a swarm of Docker engines, and to     schedule containers across the swarm.
+    docker-registry: a tool for running your own private registry for storing Docker images.
+    docker-app: a tool for packaging, distributing and installing multi-container applications as a single entity on any Docker runtime.
+
+3. Docker Hub
+    Docker Hub is a service provided by Docker for finding and sharing container images. It allows users to create and manage their     own public and private repositories for storing and sharing container images.    
+    Docker Hub has a large collection of pre-built container images for various applications and services, which can be easily  downloaded and used. Users can also upload their own custom images to the hub and share them with others.
+    Docker Hub also provides features such as automated builds, webhooks, and organizations to manage teams and collaborate on  container images. It is a centralized resource for finding and sharing container images, making it easy for developers to find   and use the right images for their applications.
+    Docker Hub is the default registry for the Docker engine and the docker command-line tool, so when you run commands like "docker    pull" or "docker push" it will interact with Docker Hub registry.
+
+4. Docker Compose
+    Docker Compose is a tool for defining and running multi-container applications. It allows you to define your application's services, networks, and volumes in a single docker-compose.yml file. This file describes how the services in your application are connected and how they should be built and run.
+
+    With Docker Compose, you can:
+
+    Define your application's services in a single docker-compose.yml file
+    Start and stop all services with a single command
+    View the status of all services
+    Stream the logs of all services
+    Docker Compose uses a YAML file to configure the application's services, networks and volumes. The file defines services, networks, and volumes, and describes how they should be built and run.
+
+    Example:
+
+    version: "3"
+    services:
+    web:
+        image: nginx:latest
+        ports:
+        - "80:80"
+        volumes:
+        - "./data:/usr/share/nginx/html"
+    db:
+        image: postgres:latest
+        environment:
+        - POSTGRES_DB=mydb
+        - POSTGRES_USER=myuser
+        - POSTGRES_PASSWORD=mypassword
+        volumes:
+        - "./data:/var/lib/postgresql/data"
+        
+    This file describes two services, "web" and "db" that run Nginx and Postgres respectively. It maps port 80 of the host machine to port 80 of the "web" service, and defines some environment variables for the "db" service.
+
+    You can use docker-compose command to start, stop or check the status of the application, or to stream the logs of the services.
+
+    Example:
+
+    $ docker-compose up
+    $ docker-compose down
+    $ docker-compose ps
+    $ docker-compose logs
+    Docker Compose is a very useful tool for developing and testing multi-container applications. It allows you to easily manage the services that make up your application, making it easy to start, stop, and debug your application.
