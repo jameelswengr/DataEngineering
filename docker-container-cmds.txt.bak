@@ -1,0 +1,13 @@
+docker run -it ubuntu bash
+
+rm -rf / 
+
+exit
+
+docker run -it python:3.9
+
+to install pandas, run below command
+docker run -it --entrypoint=bash python:3.9
+
+
+create a docker file to create an image that contains python and pandas
