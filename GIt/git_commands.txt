@@ -14,4 +14,5 @@ Do we need to stage the changes every time before commit.
 git commit -a -m "commit in a single line"
 
 
-
+git rm file2.txt *.txt 
+git removes the file2.txt and all other .txt files from workign directory and staging area.
